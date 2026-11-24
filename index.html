@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruitment Role-Play Generator</title>
+<style>
+:root{--navy:#172554;--blue:#2563eb;--sky:#eff6ff;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--paper:#fff;--bg:#f5f7fb;--green:#047857}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(120deg,#172554,#1d4ed8);color:white;padding:34px 20px 30px}header .wrap,main{max-width:1050px;margin:auto}header h1{margin:0 0 8px;font-size:clamp(1.7rem,4vw,2.5rem)}header p{margin:0;color:#dbeafe}
+main{padding:24px 18px 50px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:0 5px 18px #0f172a08}
+h2{font-size:1.25rem;margin:0 0 12px;color:var(--navy)}h3{margin:0 0 7px;font-size:1.05rem}p{margin:6px 0 12px}.muted,.hint{color:var(--muted);font-size:.92rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field label{font-weight:700;display:block;margin-bottom:7px}
+textarea{width:100%;min-height:180px;resize:vertical;border:1px solid #cbd5e1;border-radius:10px;padding:12px;font:inherit;line-height:1.6}
+select{padding:10px 12px;border:1px solid #cbd5e1;border-radius:9px;font:inherit;background:white}
+button{border:0;border-radius:10px;padding:12px 17px;font:inherit;font-weight:700;cursor:pointer}
+.primary{background:var(--blue);color:white}.secondary{background:#eaf0ff;color:#1e40af}.plain{background:#f1f5f9;color:#334155}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}.error{color:#b91c1c;font-weight:600;margin-top:10px}
+.instructions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px}.step b{display:block;color:var(--blue);margin-bottom:4px}
+#results{display:none}.summary{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 18px}.pill{background:var(--sky);color:#1e40af;border-radius:999px;padding:6px 11px;font-size:.88rem;font-weight:700}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.case-card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:white}.case-head{background:#eff6ff;padding:14px}.case-head h3{color:var(--navy)}.case-body{padding:14px}.person{padding:9px 10px;border-radius:9px;background:#f8fafc;margin:7px 0}.person strong{display:block}.role{font-size:.78rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--green)}
+.package{margin-top:12px;padding:12px;background:#f8fafc;border-radius:10px;font-size:.9rem}.package div{margin:5px 0}.package b{color:#334155}
+ul{padding-left:20px;margin:8px 0}.small{font-size:.85rem}.footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:24px}
+@media(max-width:760px){.grid,.case-grid,.instructions{grid-template-columns:1fr}.panel{padding:17px}header{padding:27px 18px}}
+@media print{body{background:white}.no-print,header p,#setup,.footer{display:none!important}header{padding:15px;background:white;color:#172554}header h1{font-size:22px}main{padding:0}.panel{box-shadow:none;border:0;padding:0}.case-grid{grid-template-columns:repeat(3,1fr)}.case-card{break-inside:avoid}.case-head{background:#eee!important;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Recruitment Role-Play Generator</h1><p>Three unusual jobs. Random roles. One recruitment challenge.</p></div></header>
+<main>
+<section class="panel" id="instructions">
+<h2>How to play</h2>
+<div class="instructions">
+<div class="step"><b>1. Enter names</b>Paste each class list below, with one student name per line.</div>
+<div class="step"><b>2. Generate teams</b>The generator randomly selects 3 recruiters, one for each job. Everyone else becomes an applicant.</div>
+<div class="step"><b>3. Prepare and interview</b>Recruiters create an advert. Applicants prepare a CV. Then conduct the interview.</div>
+</div>
+<p class="hint">Each case gets one recruiter. Applicants are distributed as evenly as possible. Every person in a case receives the same HR package.</p>
+</section>
+<section class="panel no-print" id="setup">
+<h2>Enter your student names</h2>
+<p class="muted">Enter names separately for each class. You can paste a whole column from a spreadsheet.</p>
+<div class="grid">
+<div class="field"><label for="classA">Class A — 7 students</label><textarea id="classA" placeholder="Student 1&#10;Student 2&#10;Student 3&#10;..."></textarea><div class="hint" id="countA">0 names entered</div></div>
+<div class="field"><label for="classB">Class B — 10 students</label><textarea id="classB" placeholder="Student 1&#10;Student 2&#10;Student 3&#10;..."></textarea><div class="hint" id="countB">0 names entered</div></div>
+</div>
+<div class="actions"><label for="whichClass" style="font-weight:700;align-self:center">Generate for:</label><select id="whichClass"><option value="A">Class A</option><option value="B">Class B</option></select><button class="primary" id="generate">🎲 Randomly assign roles &amp; cases</button><button class="plain" id="clear">Clear names</button></div>
+<div class="error" id="error" role="alert"></div>
+</section>
+<section class="panel" id="results">
+<div class="no-print"><h2>Assignment results</h2><p class="muted" id="resultLabel"></p><div class="actions"><button class="secondary" id="copy">Copy assignments</button><button class="secondary" onclick="window.print()">Print / Save as PDF</button><button class="plain" id="regenerate">Shuffle again</button></div></div>
+<div class="summary" id="summary"></div><div class="case-grid" id="caseGrid"></div>
+<p class="hint small">Teacher note: Keep this results page visible or share the published GitHub Pages link with students. Anyone with the link can use the page. Names entered here stay in the browser and are not uploaded to a server.</p>
+</section>
+<section class="panel"><h2>Student task checklist</h2><div class="grid">
+<div><h3>Recruiter</h3><ul><li>Create a job advertisement and person specification.</li><li>Include the assigned recruitment method and HR package.</li><li>Prepare three interview questions.</li><li>Interview every applicant assigned to your case.</li></ul></div>
+<div><h3>Applicant</h3><ul><li>Create a professional CV/resume for the assigned job.</li><li>Show skills and experience that match the person specification.</li><li>Prepare three questions to ask the recruiter.</li><li>Use the assigned HR package to decide what to ask about the job.</li></ul></div>
+</div></section>
+<div class="footer">Recruitment Role-Play • HR Management</div>
+</main>
+<script>
+const cases=[
+{id:"coconut",name:"Coconut Safety Engineer",desc:"Make coconut trees safe. Inspect trees, check for hazards, and remove coconuts or other objects that could fall and injure passers-by."},
+{id:"wrinkle",name:"Wrinkle Chaser",desc:"Inspect shoes and remove wrinkles or creases using tools such as irons and hot-air blowers before the shoes leave the factory."},
+{id:"snake",name:"Snake Milker",desc:"Handle snakes and extract venom used to produce anti-venom. The role requires frequent contact with potentially dangerous snakes."}
+];
+const methods=["Internal recruitment","External recruitment"];
+const financial=["Salary","Wages – time rate","Wages – piece rate","Commission","Performance-related pay (PRP)","Profit-related pay","Employee share ownership scheme","Fringe payments"];
+const nonfinancial=["Job enrichment","Job rotation","Job enlargement","Empowerment","Purpose / opportunity to make a difference","Teamwork"];
+const training=["Induction","On-the-job training","Off-the-job training"];
+let lastClass=null,lastAssignment=null;
+const $=id=>document.getElementById(id);
+function namesFrom(id){return $(id).value.split(/\n|,/).map(x=>x.trim()).filter(Boolean)}
+function updateCounts(){["A","B"].forEach(c=>$("count"+c).textContent=namesFrom("class"+c).length+" names entered")}
+$("classA").addEventListener("input",updateCounts);$("classB").addEventListener("input",updateCounts);
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+function makeAssignment(list){
+ let shuffled=shuffle(list),recruiters=shuffle(shuffled).slice(0,3),applicants=shuffled.filter(n=>!recruiters.includes(n));
+ let caseOrder=shuffle(cases),groups=caseOrder.map(c=>({job:c,recruiter:null,applicants:[],pkg:{method:pick(methods),financial:pick(financial),nonfinancial:pick(nonfinancial),training:pick(training)}}));
+ recruiters.forEach((name,i)=>groups[i].recruiter=name);
+ applicants=shuffle(applicants);
+ applicants.forEach(name=>{let min=Math.min(...groups.map(g=>g.applicants.length));let choices=shuffle(groups.filter(g=>g.applicants.length===min));choices[0].applicants.push(name)});
+ return groups;
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function render(groups,cls){
+ lastClass=cls;lastAssignment=groups;$("resultLabel").textContent="Class "+cls+" • "+groups.reduce((n,g)=>n+1+g.applicants.length,0)+" students assigned";
+ $("summary").innerHTML='<span class="pill">3 recruiters</span><span class="pill">'+groups.reduce((n,g)=>n+g.applicants.length,0)+' applicants</span><span class="pill">3 job cases</span>';
+ $("caseGrid").innerHTML=groups.map(g=>'<article class="case-card"><div class="case-head"><h3>'+esc(g.job.name)+'</h3><div class="small muted">'+esc(g.job.desc)+'</div></div><div class="case-body"><div class="person"><span class="role">Recruiter</span><strong>'+esc(g.recruiter)+'</strong></div><h3 class="small">Applicants ('+g.applicants.length+')</h3>'+g.applicants.map(n=>'<div class="person"><span class="role" style="color:#1d4ed8">Applicant</span><strong>'+esc(n)+'</strong></div>').join('')+'<div class="package"><b>Random HR package</b><div><b>Recruitment:</b> '+esc(g.pkg.method)+'</div><div><b>Financial reward:</b> '+esc(g.pkg.financial)+'</div><div><b>Non-financial reward:</b> '+esc(g.pkg.nonfinancial)+'</div><div><b>Training:</b> '+esc(g.pkg.training)+'</div></div></div></article>').join('');
+ $("results").style.display="block";$("results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function generate(){let cls=$("whichClass").value,list=namesFrom("class"+cls);$("error").textContent="";
+ if(list.length<3){$("error").textContent="Please enter at least 3 names for the selected class.";return}
+ if(new Set(list.map(n=>n.toLowerCase())).size!==list.length){$("error").textContent="There are duplicate names in this class list. Please make each name unique.";return}
+ render(makeAssignment(list),cls);
+}
+$("generate").addEventListener("click",generate);
+$("regenerate").addEventListener("click",()=>{if(lastClass)render(makeAssignment(namesFrom("class"+lastClass)),lastClass)});
+$("clear").addEventListener("click",()=>{$("classA").value="";$("classB").value="";updateCounts();$("error").textContent="";$("results").style.display="none"});
+$("copy").addEventListener("click",async()=>{let lines=["Class "+lastClass+" – Recruitment Role-Play Assignments"];
+ lastAssignment.forEach(g=>{lines.push("\n"+g.job.name,"Recruiter: "+g.recruiter,"Applicants: "+(g.applicants.join(", ")||"None"),"Recruitment: "+g.pkg.method,"Financial reward: "+g.pkg.financial,"Non-financial reward: "+g.pkg.nonfinancial,"Training: "+g.pkg.training)});
+ try{await navigator.clipboard.writeText(lines.join("\n"));$("copy").textContent="Copied!";setTimeout(()=>$("copy").textContent="Copy assignments",1600)}catch(e){$("copy").textContent="Copy unavailable"}});
+</script>
+</body></html>
