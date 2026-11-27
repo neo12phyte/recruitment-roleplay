@@ -37,3 +37,15 @@ The simulator is a static website. Choices and scores stay in the current browse
 ## Deploy
 
 GitHub Actions deploys the repository to GitHub Pages whenever changes are pushed to `main`. The workflow is at `.github/workflows/deploy.yml`.
+
+
+## Culture Quest — Organizational Culture Simulation
+
+A first-person retro-FPS-inspired culture-clash game with two perspectives:
+
+- **Worker POV:** Explore four workplace zones, identify the Handy culture patterns in tension, choose how to respond, and resolve a final merger clash.
+- **Leader POV:** Make four leadership decisions that build a profile across Zeus (Power/Club), Apollo (Role), Athena (Task), and Dionysus (Person/Existential), then resolve the same final culture clash. The report describes a dominant or hybrid pattern, strengths, blind spots and advice.
+
+Play online: https://neo12phyte.github.io/recruitment-roleplay/culture-quest.html
+
+The game uses fictional scenarios for practice. The leader profile reflects choices made in the simulation, not a psychological or personality assessment. The four Handy cultures are presented as patterns that can coexist; no single pattern is universally best.
