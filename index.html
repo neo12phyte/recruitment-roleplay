@@ -267,7 +267,7 @@ main{width:100%;max-width:none!important;margin:0 auto!important;padding:0 0 36p
  main{width:100%;max-width:none!important;margin:0 auto!important;padding:0 0 30px!important}
  #home-screen.quest-home{display:block;width:min(100%,1536px);max-width:1536px;margin:0 auto 20px!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
  .reference-menu-stage{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;background:#33245d;line-height:0;box-shadow:0 10px 32px rgba(0,0,0,.22)}
- .reference-menu-art{display:block;width:100%;height:100%;object-fit:fill}
+ .reference-menu-art{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;object-position:center}
  .reference-hotspot{position:absolute;display:block;z-index:4;margin:0;padding:0;border:0;border-radius:0;background:transparent;line-height:normal;cursor:pointer;text-decoration:none}
  .hotspot-manager{left:32.2%;top:33.8%;width:35.6%;height:12.8%}
  .hotspot-applicant{left:32.2%;top:48.2%;width:35.6%;height:12.8%}
@@ -296,7 +296,7 @@ main{width:100%;max-width:none!important;margin:0 auto!important;padding:0 0 36p
 
 <section class="quest-home" id="home-screen">
  <div class="reference-menu-stage" role="group" aria-label="People Quest game menu">
-  <img class="reference-menu-art" src="assets/peoplequest-main-menu.svg" alt="People Quest pixel-art game menu showing the manager and applicant choices, HR topic coverage, and consultant tip" width="1536" height="1024"/>
+  <img class="reference-menu-art" src="assets/peoplequest-main-menu-v1.webp" alt="People Quest original pixel-art menu showing the manager and applicant choices, HR topic coverage, and consultant tip" width="1536" height="1024" loading="eager" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='assets/peoplequest-main-menu.svg';"/>
   <button class="reference-hotspot hotspot-manager" type="button" data-start="manager" aria-label="Play as manager"><span class="sr-only">Play as manager</span></button>
   <button class="reference-hotspot hotspot-applicant" type="button" data-start="applicant" aria-label="Play as applicant"><span class="sr-only">Play as applicant</span></button>
   <a class="reference-hotspot coverage-hotspot coverage-recruitment" href="https://thinkib.net/businessmanagement/page/44382/internal-external-recruitment-hl" target="_blank" rel="noopener" aria-label="Learn about internal and external recruitment"></a>
