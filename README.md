@@ -41,11 +41,13 @@ GitHub Actions deploys the repository to GitHub Pages whenever changes are pushe
 
 ## Culture Quest — Organizational Culture Simulation
 
-A first-person retro-FPS-inspired culture-clash game with two perspectives:
+A light, pixel-art workplace story with simple cutscene transitions and two paths:
 
-- **Worker POV:** Explore four workplace zones, identify the Handy culture patterns in tension, choose how to respond, and resolve a final merger clash.
-- **Leader POV:** Make four leadership decisions that build a profile across Zeus (Power/Club), Apollo (Role), Athena (Task), and Dionysus (Person/Existential), then resolve the same final culture clash. The report describes a dominant or hybrid pattern, strengths, blind spots and advice.
+- **Worker POV:** Choose a first team, experience its culture, choose a different second team, and experience that culture too. Choices affect trust and friction. Only after these visits does a clash appear; the worker then chooses how to fix it.
+- **Leader POV:** Make four leadership choices across growth, teamwork and acquisition scenes. The story responds to those choices. A culture clash appears later between the leader's dominant or mixed Handy pattern and the incoming team; the leader must resolve it.
 
-Play online: https://neo12phyte.github.io/recruitment-roleplay/culture-quest.html
+The final leader report shows the student's choice pattern across Zeus (Power), Apollo (Role), Athena (Task) and Dionysus (Person), with strengths, risks and advice. This is a record of game decisions, not a personality test.
 
-The game uses fictional scenarios for practice. The leader profile reflects choices made in the simulation, not a psychological or personality assessment. The four Handy cultures are presented as patterns that can coexist; no single pattern is universally best.
+Play: https://neo12phyte.github.io/recruitment-roleplay/culture-quest.html
+
+The stories are fictional classroom scenarios. The four Handy culture patterns can coexist; no one culture is best in every situation.
