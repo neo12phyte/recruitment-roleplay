@@ -1,25 +1,39 @@
-# Recruitment Role-Play Generator
+# People Quest — The HR Decision Simulator
 
-A classroom web app for randomly assigning students to recruiter/applicant roles and one of three job cases.
+A browser-based, classroom-friendly IBDP Business Management simulation covering HRM decisions from two perspectives.
 
-## Use
+## Play online
 
-1. Open the published website.
-2. Paste each class list into its own box, one student name per line.
-3. Choose Class A or Class B.
-4. Click **Randomly assign roles & cases**.
-5. Each class receives 3 recruiters (one per job); the remaining students are distributed as evenly as possible among the three cases.
-6. Each case receives a randomly selected recruitment method, financial reward, non-financial reward and training type.
-7. Print/save the results or copy the assignments.
-
-## Publish with GitHub Pages
-
-This repository includes a GitHub Actions workflow at `.github/workflows/deploy.yml`. It builds and deploys the static site to GitHub Pages whenever changes are pushed to `main`.
-
-After the first workflow run completes, open **Settings → Pages** to find the website URL. It should be:
+After the GitHub Pages deployment completes, open:
 
 https://neo12phyte.github.io/recruitment-roleplay/
 
+## Two playable perspectives
+
+- **Manager mode:** Eight business cases. For every case, select a recruitment source, financial reward, non-financial reward and training approach. Each decision receives immediate feedback and a score.
+- **Applicant mode:** Six candidate profiles. Compare three job offers, select the best match for the candidate's priorities and choose a useful question to ask before accepting.
+
+Both modes finish with a score report and consultant-style advice. The success target is 75%.
+
+## IB Business Management coverage
+
+- Internal and external recruitment (HL)
+- Financial rewards: salary, time-rate wages, piece-rate wages, commission, performance-related pay, profit-related pay, employee share ownership schemes and fringe payments
+- Non-financial rewards: job enlargement, job enrichment, job rotation, empowerment, purpose and teamwork/participation
+- Training: induction, on-the-job and off-the-job training
+
+The scenarios and characters are fictional. The activity focuses on applying concepts to context; in real businesses, decisions depend on evidence and trade-offs rather than one universally correct answer.
+
+## Other classroom resource
+
+The original random recruiter/applicant role assignment generator is preserved at:
+
+https://neo12phyte.github.io/recruitment-roleplay/generator.html
+
 ## Privacy
 
-The app runs in the visitor's browser. Student names entered into the page are not uploaded to a database or written to this repository. Do not add student names to source code or commit them to GitHub.
+The simulator is a static website. Choices and scores stay in the current browser session; no student names, answers or personal data are sent to a server or saved to a database.
+
+## Deploy
+
+GitHub Actions deploys the repository to GitHub Pages whenever changes are pushed to `main`. The workflow is at `.github/workflows/deploy.yml`.
