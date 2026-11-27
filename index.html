@@ -168,64 +168,196 @@ main{max-width:1180px;margin:-232px auto 0;padding:0 20px 44px}
  #home-screen,#guide-panel{display:none!important}
 }
 
+
+/* ===== Symmetric, single-stage People Quest homepage ===== */
+.site-head{display:none!important}
+body{background:#211943!important}
+main{width:100%;max-width:none!important;margin:0 auto!important;padding:0 0 36px!important}
+#home-screen.quest-home{display:block;width:min(100%,1536px);max-width:1536px;margin:0 auto 24px!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.desktop-menu-stage{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;background:#35265f url("assets/peoplequest-office-v2.webp") center/100% 100% no-repeat;isolation:isolate}
+.title-lockup{position:absolute;z-index:5;left:50%;top:2.2%;width:62%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;text-align:center}
+.title-handshake{font-size:clamp(1.6rem,3vw,3.2rem);line-height:1;margin-bottom:-.15em;filter:drop-shadow(3px 3px #30214f)}
+.title-lockup h1{font-family:"Courier New",monospace;font-weight:1000;font-size:clamp(2.4rem,5.1vw,5.35rem);line-height:1;margin:0;padding:0 12px 4px;letter-spacing:-.055em;color:#ffd94f;-webkit-text-stroke:2px #30204e;text-shadow:4px 5px #30204e,7px 8px #f6e3b3;white-space:nowrap}
+.title-ribbon{margin-top:3px;padding:5px 32px 7px;background:#a94e91;border:4px solid #fff0ce;outline:3px solid #37245d;box-shadow:4px 5px #30204e;color:#fff;font-family:"Courier New",monospace;font-weight:1000;font-size:clamp(.9rem,1.9vw,1.7rem);letter-spacing:.04em}
+.title-tagline{margin-top:10px;padding:6px 18px;background:#fff9e9;border:3px solid #3e326c;box-shadow:3px 4px #2a1d4a;color:#211d3c;font-weight:950;font-size:clamp(.72rem,1.35vw,1.15rem);white-space:nowrap}
+.side-character{position:absolute;z-index:3;top:31.5%;width:23.5%;height:32%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;pointer-events:none}
+.manager-scene{left:4.7%}
+.applicant-scene{right:4.7%}
+.role-sprite{width:62%;height:82%;background-size:300% 200%;image-rendering:pixelated;filter:drop-shadow(4px 4px #30204e)}
+.speech-bubble{position:absolute;top:-10%;left:12%;min-width:68%;height:25%;display:flex;align-items:center;justify-content:center;gap:8px;padding:5px 12px;background:#fffdf5;border:4px solid #30204e;outline:2px solid #fff;border-radius:48%;box-shadow:4px 4px #30204e;color:#30204e;font-size:clamp(.65rem,1.12vw,.98rem);font-weight:1000;text-align:center;transform:rotate(-2deg)}
+.applicant-scene .speech-bubble{left:18%;transform:rotate(2deg)}
+.character-nameplate{position:absolute;bottom:-1%;width:76%;padding:4px 5px;background:#ffda72;border:3px solid #fff7d8;outline:3px solid #6c3c33;box-shadow:3px 4px #30204e;color:#35214a;text-align:center;font-family:"Courier New",monospace;font-weight:1000;letter-spacing:.07em;font-size:clamp(.72rem,1.28vw,1.1rem)}
+.central-role-menu{position:absolute;z-index:6;left:33.2%;top:34.2%;width:33.6%;display:flex;flex-direction:column;gap:1.5%}
+.role-button{position:relative;width:100%;height:7.9vw;max-height:120px;min-height:64px;display:flex;align-items:center;justify-content:center;gap:clamp(8px,1.4vw,20px);padding:7px 14px;border:5px solid #fff7d9;outline:3px solid #30204e;box-shadow:6px 7px #2a1c4b;border-radius:10px;color:#2b1f48;transition:transform .12s,filter .12s;cursor:pointer}
+.role-button:hover{transform:translateY(-3px) scale(1.015);filter:brightness(1.07)}
+.role-button:active{transform:translateY(2px)}
+.manager-button{background:linear-gradient(180deg,#ffe77a,#ffbd32);border-color:#fff9d4}
+.applicant-button{background:linear-gradient(180deg,#dfb4ff,#a86de8);border-color:#fff1ff}
+.role-arrow{font-size:clamp(1.2rem,2.2vw,2.1rem);text-shadow:2px 2px #fff}
+.role-button-copy{display:flex;flex-direction:column;align-items:center;font-family:"Courier New",monospace;line-height:1.04}
+.role-button-copy small{font-size:clamp(.75rem,1.5vw,1.35rem);font-weight:1000;letter-spacing:.1em}
+.role-button-copy b{font-size:clamp(1.05rem,2.45vw,2.3rem);font-weight:1000;letter-spacing:.035em}
+.role-mark{font-size:clamp(1.45rem,2.8vw,2.7rem);filter:drop-shadow(2px 2px #60456b)}
+.coverage-console{position:absolute;z-index:7;left:16%;top:68.3%;width:68%;height:17.5%;padding:1.2% 1.4% .8%;background:linear-gradient(180deg,#f7edff,#dcd0f6);border:5px solid #fff;outline:3px solid #78679d;box-shadow:6px 7px #281d4b;border-radius:10px}
+.coverage-title{position:absolute;left:50%;top:-13%;transform:translateX(-50%);padding:4px 34px;background:#40316f;border:4px solid #ffe9a8;outline:2px solid #2d1d4b;box-shadow:3px 4px #281d4b;color:#fff;font-family:"Courier New",monospace;font-weight:1000;letter-spacing:.12em;font-size:clamp(.78rem,1.45vw,1.25rem);white-space:nowrap}
+.coverage-tiles{height:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2%}
+.coverage-tile{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;padding:3px 5px;background:#fff8e8;border:3px solid #fff;outline:2px solid #9384b5;box-shadow:3px 3px #796a9b;border-radius:7px;color:#272047;transition:transform .12s,background .12s}
+.coverage-tile:hover{transform:translateY(-3px);background:#fff}
+.coverage-icon{font-size:clamp(1.2rem,2.5vw,2.5rem);line-height:1.15;filter:drop-shadow(2px 2px #b5a4c7)}
+.coverage-tile b{font-size:clamp(.66rem,1.25vw,1.08rem);line-height:1.12;margin-top:3px}
+.coverage-tile small{font-size:clamp(.53rem,.84vw,.75rem);line-height:1.12;margin-top:3px;color:#55506b;font-weight:750}
+.consultant-tip{position:absolute;z-index:8;left:25%;top:88.2%;width:50%;height:10.4%;display:flex;align-items:center;gap:1.5%;padding:4px 13px;background:#fff6df;border:4px solid #fff;outline:3px solid #44315f;box-shadow:5px 6px #21173f;border-radius:7px}
+.tip-character{height:125%;width:15%;flex:0 0 15%;background-size:300% 200%;image-rendering:pixelated;filter:drop-shadow(3px 3px #63517f);align-self:flex-end}
+.tip-copy{display:flex;min-width:0;flex-direction:column;align-items:flex-start;gap:2px;color:#282144}
+.tip-copy span{font-family:"Courier New",monospace;background:#7449ab;color:#fff;padding:3px 9px;font-weight:1000;font-size:clamp(.6rem,.9vw,.8rem);border:2px solid #fff}
+.tip-copy b{font-size:clamp(.68rem,1.08vw,.96rem);line-height:1.16}
+.tip-copy small{font-size:clamp(.57rem,.86vw,.78rem);line-height:1.15;color:#4a4560;font-weight:750}
+.mobile-menu{display:none}
+.quest-home .topic-links{display:none}
+@media(max-width:760px){
+ body{background:#211943!important}
+ main{padding:0 12px 24px!important}
+ #home-screen.quest-home{width:100%;margin:0 auto 22px!important;padding:0!important}
+ .desktop-menu-stage{display:none}
+ .mobile-menu{display:block;padding:19px 14px 18px;background:linear-gradient(180deg,#35245fdd,#35245ff2),url("assets/peoplequest-office-v2.webp") center top/cover no-repeat;border:4px solid #fff0bd;box-shadow:6px 7px #181237;color:#fff}
+ .mobile-menu-head{text-align:center;padding:12px 4px 20px}
+ .mobile-handshake{font-size:2.6rem;line-height:1.1}
+ .mobile-eyebrow{font-family:"Courier New",monospace;color:#ffe68d;font-size:.7rem;font-weight:1000;letter-spacing:.1em}
+ .mobile-menu-head h1{font-family:"Courier New",monospace;color:#ffdb4e;font-size:clamp(2.4rem,11vw,3.8rem);line-height:1;margin:8px 0 4px;text-shadow:3px 4px #251b50,-1px -1px #fff7c9}
+ .mobile-ribbon{display:inline-block;background:#a94e91;border:3px solid #fff;padding:6px 20px;font-family:"Courier New",monospace;font-weight:1000}
+ .mobile-menu-head p{display:inline-block;background:#fff9e9;color:#241b48;border:3px solid #fff;padding:7px 10px;font-size:.83rem;font-weight:950;margin:13px 0 0}
+ .mobile-role-grid{display:grid;grid-template-columns:1fr;gap:13px}
+ .mobile-role-card{min-width:0;display:flex;align-items:center;gap:12px;padding:10px 13px;text-align:left;border:4px solid #fff;border-radius:7px;box-shadow:4px 5px #18143e;cursor:pointer;color:#231c49}
+ .mobile-manager{background:linear-gradient(110deg,#83c5f4,#d9ebff)}
+ .mobile-applicant{background:linear-gradient(110deg,#c98af1,#f0d4ff)}
+ .mobile-role-sprite{width:94px;height:125px;flex:0 0 94px;background-size:300% 200%;image-rendering:pixelated;filter:drop-shadow(2px 3px #42336c)}
+ .mobile-role-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+ .mobile-role-copy small{font-family:"Courier New",monospace;font-size:.65rem;font-weight:1000;opacity:.8}
+ .mobile-role-copy b{font-family:"Courier New",monospace;font-size:1.02rem;line-height:1.12}
+ .mobile-role-copy span{font-size:.76rem;line-height:1.3;font-weight:750}
+ .mobile-role-copy em{font-style:normal;font-family:"Courier New",monospace;font-weight:1000;font-size:.7rem;background:#ffd45d;border:2px solid #fff;padding:5px 7px;margin-top:4px;align-self:flex-start}
+ .mobile-coverage{margin-top:19px;background:#f0e9ff;border:4px solid #fff;padding:14px 10px 10px;box-shadow:4px 5px #1b153d;color:#271d4e}
+ .mobile-coverage h2{text-align:center;font-family:"Courier New",monospace;margin:0 0 10px;font-size:1rem}
+ .mobile-coverage-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+ .mobile-coverage-grid a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;padding:9px 5px;background:#fff8e8;border:2px solid #fff;box-shadow:2px 2px #8d7ba9;color:#2a214b;min-height:100px}
+ .mobile-coverage-grid span{font-size:1.7rem}.mobile-coverage-grid b{font-size:.75rem;line-height:1.15}.mobile-coverage-grid small{font-size:.63rem;color:#5b5572;margin-top:4px}
+ .mobile-tip{display:flex;align-items:center;gap:9px;padding:10px 11px;margin-top:15px;background:#fff4d9;border:3px solid #fff;box-shadow:3px 4px #171239;color:#292046}
+ .mobile-tip-character{width:54px;height:70px;flex:0 0 54px;background-size:300% 200%;image-rendering:pixelated}
+ .mobile-tip>div:last-child{display:flex;flex-direction:column;gap:3px}
+ .mobile-tip b{font-family:"Courier New",monospace;color:#6a44a0;font-size:.69rem}
+ .mobile-tip strong{font-size:.76rem;line-height:1.2}.mobile-tip small{font-size:.66rem;line-height:1.25;color:#59516c}
+}
+@media(min-width:761px) and (max-width:1050px){
+ .side-character{width:22%;top:32%}
+ .role-sprite{width:68%}
+ .speech-bubble{font-size:.64rem;padding:4px 7px}
+ .coverage-tile small{display:none}
+ .consultant-tip{left:22%;width:56%}
+}
+@media(max-width:380px){
+ .mobile-role-sprite{width:78px;flex-basis:78px;height:111px}
+ .mobile-role-card{gap:8px;padding:8px}
+ .mobile-role-copy b{font-size:.91rem}
+}
+
 </style>
 </head>
 <body>
-<header class="site-head">
- <div class="brand-row"><div class="brand">✦ IBDP BUSINESS MANAGEMENT</div><div class="header-pill">HR DECISION SIMULATOR · UNIT 2.4</div></div>
- <div class="hero">
-  <div class="hero-title">
-   <div class="kicker">YOUR CAREER · YOUR DECISIONS · YOUR QUEST</div>
-   <h1>PEOPLE QUEST</h1>
-   <div class="hero-subtitle">THE HR SIMULATION</div>
-   <p>Hire smart <span>•</span> Develop talent <span>•</span> Keep employees motivated</p>
-  </div>
-  <div class="hero-art" aria-label="Pixel-art manager and applicant characters">
-   <div class="hero-person"><div class="pixel-sprite sprite-manager" role="img" aria-label="Pixel-art manager"></div><span>MANAGER</span></div>
-   <div class="hero-person"><div class="pixel-sprite sprite-applicant" role="img" aria-label="Pixel-art applicant"></div><span>APPLICANT</span></div>
-  </div>
- </div>
-</header>
+
 
 <main>
-<section class="panel" id="home-screen">
- <div class="eyebrow">✦ CHOOSE YOUR POINT OF VIEW ✦</div>
- <h2 class="section-title">Whose side of the desk are you on?</h2>
- <p class="section-sub">Every great business decision starts with understanding people.</p>
- <div class="mode-grid">
-  <button class="mode-card manager" id="start-manager">
-   <span class="number">01</span>
-   <div class="mode-icon"><div class="pixel-sprite sprite-manager" role="img" aria-label="Pixel-art manager"></div></div>
-   <h3>MANAGER MODE</h3>
-   <p>You are in charge of hiring. Choose the right recruitment method, rewards and training to build a great team.</p>
-   <span class="mode-cta">▶ PLAY AS MANAGER</span>
-  </button>
-  <button class="mode-card applicant" id="start-applicant">
-   <span class="number">02</span>
-   <div class="mode-icon"><div class="pixel-sprite sprite-applicant" role="img" aria-label="Pixel-art applicant"></div></div>
-   <h3>APPLICANT MODE</h3>
-   <p>You are searching for a job. Compare offers, explore rewards and choose the opportunity that suits you best.</p>
-   <span class="mode-cta">▶ PLAY AS APPLICANT</span>
-  </button>
+
+<section class="quest-home" id="home-screen">
+ <div class="desktop-menu-stage">
+  <div class="title-lockup">
+   <div class="title-handshake" aria-hidden="true">🤝</div>
+   <h1>PEOPLE QUEST</h1>
+   <div class="title-ribbon">THE HR SIMULATION</div>
+   <div class="title-tagline">Hire smart. Grow talent. Build a better team!</div>
+  </div>
+
+  <div class="side-character manager-scene" aria-label="Manager character">
+   <div class="speech-bubble">👥 <span>FIND GREAT<br>TALENT</span></div>
+   <div class="pixel-sprite sprite-manager role-sprite" role="img" aria-label="Pixel-art manager"></div>
+   <div class="character-nameplate manager-nameplate">MANAGER</div>
+  </div>
+  <div class="side-character applicant-scene" aria-label="Applicant character">
+   <div class="speech-bubble">📈 <span>FIND YOUR<br>NEXT ROLE</span></div>
+   <div class="pixel-sprite sprite-applicant role-sprite" role="img" aria-label="Pixel-art applicant"></div>
+   <div class="character-nameplate applicant-nameplate">APPLICANT</div>
+  </div>
+
+  <div class="central-role-menu">
+   <button class="role-button manager-button" type="button" data-start="manager">
+    <span class="role-arrow">▶</span>
+    <span class="role-button-copy"><small>PLAY AS</small><b>MANAGER</b></span>
+    <span class="role-mark">👥</span>
+   </button>
+   <button class="role-button applicant-button" type="button" data-start="applicant">
+    <span class="role-arrow">▶</span>
+    <span class="role-button-copy"><small>PLAY AS</small><b>APPLICANT</b></span>
+    <span class="role-mark">💼</span>
+   </button>
+  </div>
+
+  <section class="coverage-console" aria-label="Game coverage">
+   <div class="coverage-title">COVERAGE</div>
+   <div class="coverage-tiles">
+    <a class="coverage-tile" href="https://thinkib.net/businessmanagement/page/44382/internal-external-recruitment-hl" target="_blank" rel="noopener">
+     <span class="coverage-icon">🔎</span><b>Recruitment</b><small>Internal / External</small>
+    </a>
+    <a class="coverage-tile" href="https://thinkib.net/businessmanagement/page/44363/types-of-financial-rewards" target="_blank" rel="noopener">
+     <span class="coverage-icon">🪙</span><b>Financial Rewards</b><small>Pay, incentives & benefits</small>
+    </a>
+    <a class="coverage-tile" href="https://thinkib.net/businessmanagement/page/44370/types-of-non-financial-rewards" target="_blank" rel="noopener">
+     <span class="coverage-icon">🏅</span><b>Non-Financial Rewards</b><small>Motivation & job design</small>
+    </a>
+    <a class="coverage-tile" href="https://thinkib.net/businessmanagement/page/44371/types-of-training" target="_blank" rel="noopener">
+     <span class="coverage-icon">🎓</span><b>Training</b><small>Induction / On-the-job / Off-the-job</small>
+    </a>
+   </div>
+  </section>
+
+  <div class="consultant-tip">
+   <div class="pixel-sprite sprite-consultant tip-character" role="img" aria-label="Pixel-art business consultant"></div>
+   <div class="tip-copy"><span>GAME TIP</span><b>Choose the right method for the right situation!</b><small>Your decisions will be scored, with feedback from a business consultant.</small></div>
+  </div>
  </div>
- <div class="home-mini-stats">
-  <span>🎮 TWO PLAYABLE ROLES</span><span>⭐ EARN YOUR SUCCESS</span><span>💬 GET EXPERT FEEDBACK</span>
+
+ <div class="mobile-menu">
+  <div class="mobile-menu-head">
+   <div class="mobile-handshake">🤝</div>
+   <div class="mobile-eyebrow">IBDP BUSINESS MANAGEMENT</div>
+   <h1>PEOPLE QUEST</h1>
+   <div class="mobile-ribbon">THE HR SIMULATION</div>
+   <p>Hire smart. Grow talent. Build a better team!</p>
+  </div>
+  <div class="mobile-role-grid">
+   <button class="mobile-role-card mobile-manager" type="button" data-start="manager">
+    <div class="pixel-sprite sprite-manager mobile-role-sprite" aria-hidden="true"></div>
+    <div class="mobile-role-copy"><small>01 · EMPLOYER'S VIEW</small><b>PLAY AS MANAGER</b><span>Recruit, reward, motivate and train your team.</span><em>▶ START MANAGER MODE</em></div>
+   </button>
+   <button class="mobile-role-card mobile-applicant" type="button" data-start="applicant">
+    <div class="pixel-sprite sprite-applicant mobile-role-sprite" aria-hidden="true"></div>
+    <div class="mobile-role-copy"><small>02 · EMPLOYEE'S VIEW</small><b>PLAY AS APPLICANT</b><span>Compare offers and choose the job that fits you.</span><em>▶ START APPLICANT MODE</em></div>
+   </button>
+  </div>
+  <section class="mobile-coverage">
+   <h2>GAME COVERAGE</h2>
+   <div class="mobile-coverage-grid">
+    <a href="https://thinkib.net/businessmanagement/page/44382/internal-external-recruitment-hl" target="_blank" rel="noopener"><span>🔎</span><b>Recruitment</b><small>Internal / External</small></a>
+    <a href="https://thinkib.net/businessmanagement/page/44363/types-of-financial-rewards" target="_blank" rel="noopener"><span>🪙</span><b>Financial rewards</b><small>Pay & benefits</small></a>
+    <a href="https://thinkib.net/businessmanagement/page/44370/types-of-non-financial-rewards" target="_blank" rel="noopener"><span>🏅</span><b>Non-financial rewards</b><small>Motivation & job design</small></a>
+    <a href="https://thinkib.net/businessmanagement/page/44371/types-of-training" target="_blank" rel="noopener"><span>🎓</span><b>Training</b><small>Induction & skills</small></a>
+   </div>
+  </section>
+  <div class="mobile-tip">
+   <div class="pixel-sprite sprite-consultant mobile-tip-character" aria-hidden="true"></div>
+   <div><b>💡 GAME TIP</b><strong>Choose the right method for the right situation!</strong><small>Your decisions will be scored, with advice from a business consultant.</small></div>
+  </div>
  </div>
 </section>
-<section class="panel" id="guide-panel">
- <div class="coverage-heading"><span class="eyebrow">YOUR HR TOOLKIT</span><h2 class="section-title">GAME COVERAGE</h2></div>
- <div class="guide-grid">
-  <a class="guide-chip" href="https://thinkib.net/businessmanagement/page/44382/internal-external-recruitment-hl" target="_blank" rel="noopener"><span class="coverage-icon">🔎</span><b>RECRUITMENT</b><span>Internal / External</span></a>
-  <a class="guide-chip" href="https://thinkib.net/businessmanagement/page/44363/types-of-financial-rewards" target="_blank" rel="noopener"><span class="coverage-icon">🪙</span><b>FINANCIAL REWARDS</b><span>Pay, incentives & benefits</span></a>
-  <a class="guide-chip" href="https://thinkib.net/businessmanagement/page/44370/types-of-non-financial-rewards" target="_blank" rel="noopener"><span class="coverage-icon">🏅</span><b>NON-FINANCIAL REWARDS</b><span>Motivation & job design</span></a>
-  <a class="guide-chip" href="https://thinkib.net/businessmanagement/page/44371/types-of-training" target="_blank" rel="noopener"><span class="coverage-icon">🎓</span><b>TRAINING</b><span>Induction / On-the-job / Off-the-job</span></a>
- </div>
- <div class="game-tip">
-  <div class="pixel-sprite tip-consultant sprite-consultant" role="img" aria-label="Pixel-art business consultant"></div>
-  <div><span class="tip-label">💡 GAME TIP</span><strong>Choose the right method for the right situation!</strong><p>Your decisions are scored. Learn what you did well and how to improve from your business consultant.</p></div>
- </div>
- <div class="topic-links"><a href="https://thinkib.net/businessmanagement/page/44363/types-of-financial-rewards" target="_blank" rel="noopener">Financial rewards ↗</a><a href="https://thinkib.net/businessmanagement/page/44370/types-of-non-financial-rewards" target="_blank" rel="noopener">Non-financial rewards ↗</a><a href="https://thinkib.net/businessmanagement/page/44371/types-of-training" target="_blank" rel="noopener">Types of training ↗</a><a href="https://thinkib.net/businessmanagement/page/44382/internal-external-recruitment-hl" target="_blank" rel="noopener">Internal / external recruitment (HL) ↗</a></div>
-</section>
+
 <section class="panel hidden" id="play-screen">
  <div class="game-top"><button class="back-btn" id="back-home">← Back to role choice</button><div class="mode-label" id="mode-label">MANAGER MODE</div></div>
  <div class="progress-wrap"><div class="progress-line"><span id="round-label">Round 1 of 8</span><span id="progress-label">0% complete</span></div><div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div></div>
@@ -349,7 +481,7 @@ let mode=null,round=0,deck=[],answers={},applicantChoice=null,questionChoice=nul
 const $=id=>document.getElementById(id);
 function shuffle(list){const a=list.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-function showScreen(id){["home-screen","guide-panel","play-screen","result-screen"].forEach(x=>$(x).classList.add("hidden"));$(id).classList.remove("hidden");document.body.classList.toggle("in-game",id==="play-screen"||id==="result-screen")}
+function showScreen(id){["home-screen","guide-panel","play-screen","result-screen"].forEach(x=>{const el=$(x);if(el)el.classList.add("hidden")});$(id).classList.remove("hidden");document.body.classList.toggle("in-game",id==="play-screen"||id==="result-screen")}
 function startGame(which){mode=which;round=0;results=[];deck=shuffle(which==="manager"?MANAGER_CASES:APPLICANT_CASES);answers={};applicantChoice=null;questionChoice=null;$("mode-label").textContent=which==="manager"?"🧑‍💼 MANAGER MODE":"🧑‍🎓 APPLICANT MODE";$("back-home").textContent="← Change role";showScreen("play-screen");renderRound()}
 function setProgress(){const pct=Math.round((round/deck.length)*100);$("round-label").textContent=(mode==="manager"?"Business case ":"Candidate ")+(round+1)+" of "+deck.length;$("progress-label").textContent=pct+"% complete";$("progress-fill").style.width=pct+"%"}
 function renderRound(){setProgress();if(mode==="manager")renderManager();else renderApplicant()}
@@ -412,7 +544,7 @@ function showResults(){showScreen("result-screen");const avg=Math.round(results.
   '<div class="action-row"><button class="secondary-btn" id="print-report">Print / save report</button><button class="primary-btn" id="play-again">Play applicant mode again ↻</button></div>';
  }
  $("print-report").addEventListener("click",()=>window.print());$("play-again").addEventListener("click",()=>startGame(mode))}
-$("start-manager").addEventListener("click",()=>startGame("manager"));$("start-applicant").addEventListener("click",()=>startGame("applicant"));$("back-home").addEventListener("click",()=>{showScreen("home-screen");$("guide-panel").classList.remove("hidden")});
+document.querySelectorAll('[data-start="manager"]').forEach(btn=>btn.addEventListener("click",()=>startGame("manager")));document.querySelectorAll('[data-start="applicant"]').forEach(btn=>btn.addEventListener("click",()=>startGame("applicant")));$("back-home").addEventListener("click",()=>showScreen("home-screen"));
 </script>
 </body>
 </html>
